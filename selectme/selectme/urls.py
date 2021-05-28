@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('imageList', views.PhotoList.as_view(), name='imageListAndPost'),
+    path('imageRUD/<int:id>/', views.RUD_PatientProfile.as_view(), name='imageListAndPost'),
     path('api/', views.post_image_view.as_view())
 ]
 

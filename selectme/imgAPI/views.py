@@ -1,13 +1,25 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from rest_framework.parsers import FileUploadParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import generics
 from rest_framework import status
 from .models import post_image
 
 
 from .serializers import post_image_serializer
 
+
+
+class PhotoList(generics.ListCreateAPIView):
+    queryset = post_image.objects.all()
+    serializer_class = post_image_serializer
+
+class RUD_PatientProfile(generics.RetrieveUpdateDestroyAPIView):
+    queryset = post_image.objects.all()
+    serializer_class = post_image_serializer    
+    lookup_field = 'id'
 
 class post_image_view(APIView):
     # parser_class = (FileUploadParser,)
