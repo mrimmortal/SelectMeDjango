@@ -11,15 +11,16 @@ from .models import post_image
 from .serializers import post_image_serializer
 
 
-
-class PhotoList(generics.ListCreateAPIView):
+class image_get_and_post(generics.ListCreateAPIView):
     queryset = post_image.objects.all()
     serializer_class = post_image_serializer
 
-class RUD_PatientProfile(generics.RetrieveUpdateDestroyAPIView):
+
+class Image_Details(generics.RetrieveUpdateDestroyAPIView):
     queryset = post_image.objects.all()
-    serializer_class = post_image_serializer    
+    serializer_class = post_image_serializer
     lookup_field = 'id'
+
 
 class post_image_view(APIView):
     # parser_class = (FileUploadParser,)
