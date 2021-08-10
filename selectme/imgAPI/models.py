@@ -1,5 +1,7 @@
 # from selectme.imgAPI.views import Image_Details
 from django.db import models
+from django.db.models.base import Model
+from django.db.models.fields import EmailField
 from django.utils import timezone
 import pathlib
 import os
@@ -8,7 +10,7 @@ from django.conf import settings
 
 
 class post_image(models.Model):
-
+    
     def make_path(instance, filename):
         initial_path = str(settings.MEDIA_ROOT)
         custom_path = str(instance.ImgDate.year) + "/" + \
@@ -24,6 +26,32 @@ class post_image(models.Model):
     Userid = models.CharField(max_length=255, blank=True)
     Ceremony = models.CharField(max_length=255, blank=True)
     picture = models.ImageField(upload_to=make_path, blank=True)
+
+class sm_user(models.Model):
+    username = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    mobile = models.CharField(max_length=10)
+    address = models.CharField(max_length=128)
+
+# This table will provide meta data to the event mapping table
+class sm_event(models.Model):
+    customer = models.ForeignKey(sm_user)
+    photographer_owner = models.ForeignKey(sm_user)
+    title = models.CharField(max_length=100)
+    description  = models.CharField(max_length=1024)
+    status = models.CharField(max_length=50)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    image_dir = models.CharField(max_length=255)
+    is_share_with_customer = models.BooleanField(default=False) # is_share_with_customer photographer/customer can able to revoke the sharable link
+
+# while sharing the event this mapper will identify who is the owner photographer and co owner photographer of the same event 
+class event_mapping(models.Model):
+    event = models.ForeignKey(sm_event)
+    user = models.ForeignKey(sm_user)
 
     # def save(self, *args, **kwargs):
     #     initial_path = str(self.picture.path)
