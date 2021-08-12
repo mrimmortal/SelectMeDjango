@@ -15,7 +15,7 @@ Including another URLconf
 """
 from imgAPI import views
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,url,serve
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,7 +25,10 @@ urlpatterns = [
          name='imageListAndPost'),
     path('image_id/<int:id>/', views.Image_Details.as_view(),
          name='imageListAndPost'),
-    path('api/', views.post_image_view.as_view())
+    path('api/', views.post_image_view.as_view()),
+
+        url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ]
 
 if settings.DEBUG:
