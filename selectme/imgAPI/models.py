@@ -38,8 +38,8 @@ class sm_user(models.Model):
 
 # This table will provide meta data to the event mapping table
 class sm_event(models.Model):
-    customer = models.ForeignKey(sm_user)
-    photographer_owner = models.ForeignKey(sm_user)
+    customer = models.ForeignKey(sm_user,on_delete=models.CASCADE)
+    photographer_owner = models.ForeignKey(sm_user,on_delete=models.CASCADE , related_name="photographer_owner")
     title = models.CharField(max_length=100)
     description  = models.CharField(max_length=1024)
     status = models.CharField(max_length=50)
@@ -50,8 +50,8 @@ class sm_event(models.Model):
 
 # while sharing the event this mapper will identify who is the owner photographer and co owner photographer of the same event 
 class event_mapping(models.Model):
-    event = models.ForeignKey(sm_event)
-    user = models.ForeignKey(sm_user)
+    event = models.ForeignKey(sm_event,on_delete=models.CASCADE)
+    user = models.ForeignKey(sm_user,on_delete=models.CASCADE)
 
     # def save(self, *args, **kwargs):
     #     initial_path = str(self.picture.path)
