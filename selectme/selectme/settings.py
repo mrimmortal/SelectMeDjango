@@ -40,12 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'imgAPI',
     'rest_framework',
-    'rest_framework.authtoken',
-    'rest_auth',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'rest_auth.registration',
 ]
 
 MIDDLEWARE = [
@@ -108,11 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-}
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -139,5 +128,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-SITE_ID = 1
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

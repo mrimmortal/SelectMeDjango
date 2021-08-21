@@ -28,8 +28,7 @@ urlpatterns = [
     path('imagegetandpost', views.image_get_and_post.as_view(),name='imageListAndPost'),
     path('image_id/<int:id>/', views.Image_Details.as_view(),name='imageListAndPost'),
     path('api/', views.post_image_view.as_view()),
-    path('rest-auth/', include('rest_auth.urls')),
-    path('rest-auth/registration/',include('rest_auth.registration.urls'))
+   
 ]
 
 if settings.DEBUG:
