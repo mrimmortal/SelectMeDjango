@@ -5,10 +5,10 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework import status
-from .models import post_image
+from .models import post_image, sm_event
 
 
-from .serializers import post_image_serializer
+from .serializers import event_serializer, post_image_serializer
 
 
 class image_get_and_post(generics.ListCreateAPIView):
@@ -38,4 +38,9 @@ class post_image_view(APIView):
         else:
             return Response(image_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    class EventListView(generics.ListCreateAPIView):
+        queryset = sm_event.objects.all()
+        serializer_class = event_serializer
+
+    
 # Create your views here.
