@@ -5,7 +5,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework import status
-from .models import post_image, sm_event
+from .models import post_image
+from common.models import sm_event
 
 
 from .serializers import event_serializer, post_image_serializer
