@@ -7,7 +7,6 @@ class sm_user(AbstractUser):
     mobile = models.CharField(max_length=10)
     address = models.CharField(max_length=128)
 
-
 # This table will provide meta data to the event mapping table
 class sm_event(models.Model):
     customer = models.ForeignKey(sm_user,on_delete=models.CASCADE)
