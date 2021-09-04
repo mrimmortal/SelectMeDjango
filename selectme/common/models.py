@@ -2,13 +2,11 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 class sm_user(AbstractUser):
-    username = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    email = models.EmailField()
     mobile = models.CharField(max_length=10)
     address = models.CharField(max_length=128)
+
 
 # This table will provide meta data to the event mapping table
 class sm_event(models.Model):

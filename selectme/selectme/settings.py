@@ -57,6 +57,7 @@ REST_FRAMEWORK = {
 }
 
 SITE_ID = 1
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -69,7 +70,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'selectme.urls'
 
-SITE_ID = 1
+AUTH_USER_MODEL = 'common.sm_user'
+
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'common.serializers.sm_user_RegisterSerializer'
+}
 
 TEMPLATES = [
     {
