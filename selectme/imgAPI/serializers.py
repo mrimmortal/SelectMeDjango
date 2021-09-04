@@ -1,8 +1,8 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import post_image, sm_event
+from .models import post_image
 from imgAPI import models
-
+from common.models import *
 
 class post_image_serializer(serializers.ModelSerializer):
     class Meta:

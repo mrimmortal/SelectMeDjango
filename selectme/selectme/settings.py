@@ -41,8 +41,22 @@ INSTALLED_APPS = [
     'common',
     'imgAPI',
     'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'dj_rest_auth.registration'
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+
+SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -54,6 +68,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'selectme.urls'
+
+SITE_ID = 1
 
 TEMPLATES = [
     {

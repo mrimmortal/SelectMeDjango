@@ -1,6 +1,7 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-class sm_user(models.Model):
+class sm_user(AbstractUser):
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
     first_name = models.CharField(max_length=100)
