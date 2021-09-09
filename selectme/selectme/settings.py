@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'common',
     'imgAPI',
+    'photographer',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
