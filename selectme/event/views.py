@@ -5,18 +5,12 @@ from rest_framework.filters import SearchFilter
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
-
 #--------------------------PastEvent Model API classes (List And CRUD)---------------------------------
-class PastEventListView(generics.ListCreateAPIView):
+class CreateEventListView(generics.ListCreateAPIView):
     queryset = sm_event.objects.all()
     serializer_class = PastEventSerializer
-    filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('id','status','photographer_owner')
     
-class RUD_PastEvent(generics.RetrieveUpdateDestroyAPIView):
+class RUD_Event(generics.RetrieveUpdateDestroyAPIView):
     queryset = sm_event.objects.all()
     serializer_class = PastEventSerializer
-    filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('id','status')
-
 #--------------------------End PastEvent Model API classes (List And CRUD)------------------------------

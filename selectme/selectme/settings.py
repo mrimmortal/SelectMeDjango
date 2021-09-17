@@ -40,13 +40,15 @@ INSTALLED_APPS = [
     'common',
     'imgAPI',
     'photographer',
+    'event',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
-    'dj_rest_auth.registration'
+    'dj_rest_auth.registration',
+    'django_filters'
 ]
 
 REST_FRAMEWORK = {
