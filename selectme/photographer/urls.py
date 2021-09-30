@@ -2,8 +2,9 @@ from django.urls import path
 from photographer.views import *
 
 urlpatterns = [
-    #-----------Past Event-------------
-    path('past-event-list/',PastEventListView.as_view(), name='past-event-list'),   
-    path('past-event/<int:pk>/',RUD_PastEvent.as_view(), name ='past-event')
-    #-----------Past Event-------------
+    #-----------Events-------------
+    path('event-list/',EventListView.as_view(), name='event-list'),   
+    path('event/<int:pk>/',RUD_Event.as_view(), name ='event'),
+    #-----------Events-------------
+    path('customer-list',CustomerList.as_view(), name ='customer-list')
 ]
