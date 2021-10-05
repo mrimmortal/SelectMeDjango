@@ -1,5 +1,6 @@
 from rest_framework import generics
 from common.models import *
+from common.serializers import *
 from photographer.Serializers import *
 from rest_framework.filters import SearchFilter
 from rest_framework.filters import OrderingFilter
@@ -22,7 +23,7 @@ class RUD_Event(generics.RetrieveUpdateDestroyAPIView):
 
 #--------------------------Photographers Customer list  API classes (List And CRUD)---------------------------------
 class CustomerList(generics.ListAPIView):
-    queryset = sm_user.objects.all()
+    queryset = sm_event.objects.all()
     serializer_class = CustomerSerializer
     filter_backends = (DjangoFilterBackend,)
     filter_fields = ('id','photographer_owner')

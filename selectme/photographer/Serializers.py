@@ -1,20 +1,13 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework.serializers import SerializerMethodField
 from common.models import *
+from common.serializers import *
 
-class EventSerializer(serializers.ModelSerializer):    
-    class Meta:
-        model = sm_event
-        fields = '__all__'
-        
-class UserSerializer(serializers.ModelSerializer):    
-    class Meta:
-        model = sm_user
-        fields = '__all__'
                 
-class CustomerSerializer(serializers.ModelSerializer):  
-    photographer_owner = UserSerializer(many=True, read_only=True) 
-    customer = UserSerializer(many=True, read_only=True)
+class CustomerSerializer(serializers.ModelSerializer):      
+    customer = UserSerializer()
+    photographer_owner = UserSerializer()
     class Meta:
         model = sm_event
         fields = ['customer',
@@ -25,4 +18,4 @@ class CustomerSerializer(serializers.ModelSerializer):
                   'status',
                   'start_date',
                   'end_date',
-                  'is_share_with_customer']
+                  'is_share_with_customer']        

@@ -1,4 +1,4 @@
-from selectme.event.views import CreateEventListView, RUD_Event
+from event.views import CreateEventListView, RUD_Event
 from django.urls import path
 from photographer.views import *
 

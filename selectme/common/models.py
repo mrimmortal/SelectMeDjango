@@ -13,6 +13,7 @@ class sm_event(models.Model):
     photographer_owner = models.ForeignKey(sm_user,on_delete=models.CASCADE , related_name="photographer_owner")
     title = models.CharField(max_length=100)
     description  = models.CharField(max_length=1024)
+    event_address = models.CharField(max_length=1024)
     status = models.CharField(max_length=50)
     start_date = models.DateField()
     end_date = models.DateField()
