@@ -79,12 +79,11 @@ ROOT_URLCONF = 'selectme.urls'
 AUTH_USER_MODEL = 'common.sm_user'
 
 REST_AUTH_REGISTER_SERIALIZERS = {
-       
+         'REGISTER_SERIALIZER': 'common.serializers.sm_user_RegisterSerializer',
 }
 
 REST_AUTH_SERIALIZERS = {
-    'REGISTER_SERIALIZER': 'common.serializers.sm_user_RegisterSerializer',
-    'TOKEN_SERIALIZER': 'common.serializers.TokenSerializer',
+    'TOKEN_SERIALIZER': 'common.serializers.TokenSerializer'
 }
 TEMPLATES = [
     {
